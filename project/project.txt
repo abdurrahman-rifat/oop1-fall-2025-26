@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class MortgageCalculator {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Take user inputs
+        System.out.println("Enter the principal loan amount (P): ");
+        double P = input.nextDouble();
+
+        System.out.println("Enter the annual interest rate (in %): ");
+        double annualRate = input.nextDouble();
+
+        System.out.println("Enter the loan term (in years): ");
+        int years = input.nextInt();
+
+      
+        double r = (annualRate / 100) / 12;
+
+      
+        int n = years * 12;
+
+        // Mortgage payment formula: M = P * [r(1+r)^n] / [(1+r)^n - 1]
+        double M = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+     
+        System.out.println("Your monthly mortgage payment is: %.2f\n", M);
+
+        input.close();
+    }
+}
